@@ -6,4 +6,3 @@ plotly
 scikit-learn
 opencv-python-headless
 tensorflow
-os
