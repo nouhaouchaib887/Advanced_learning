@@ -19,7 +19,7 @@ warnings.filterwarnings('ignore')
 #Parameters
 train_dir0 = "/mount/src/Advanced_learning/streamlit_app/image/imd_wiki_examples"
 train_examples = "/mount/src/Advanced_learning/streamlit_app/image/train_example"
-test_dir = '/mount/src/Advanced_learning/streamlit_app/image/test'
+test_dir = "/mount/src/Advanced_learning/streamlit_app/image/test"
 
 
 
