@@ -17,9 +17,9 @@ from tensorflow.keras.models import load_model
 warnings.filterwarnings('ignore')
 
 #Parameters
-train_dir0 = "C:/Users/HP/Downloads/imd_wiki_examples"
-train_examples = "C:/Users/HP/Downloads/train_example"
-test_dir = 'C:/Users/HP/Downloads/test'
+train_dir0 = "/mount/src/Advanced_learning/streamlit_app/image/imd_wiki_examples"
+train_examples = "/mount/src/Advanced_learning/streamlit_app/image/train_example"
+test_dir = '/mount/src/Advanced_learning/streamlit_app/image//test'
 
 
 
@@ -76,7 +76,7 @@ def plot_train_data_distribution():
     # Créer le graphique à barres
     fig = px.bar(
         x=CLASS_LABELS_EMOJIS,
-        y = np.load('C:/Users/HP/Downloads/data_distibution.npy'),
+        y = np.load('/mount/src/Advanced_learning/streamlit_app/resultats/data_distibution.npy'),
         color= np.array([0, 1, 2, 3, 4, 5, 6]),
         color_continuous_scale="Emrld"
     )
@@ -191,7 +191,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def make_prediction( img_path):
-  model = load_model("C:/Users/HP/Downloads/model_sl (1).h5", custom_objects={'InputLayer': tf.keras.layers.InputLayer})
+  model = load_model("/mount/src/Advanced_learning/streamlit_app/resultats/model_TL).h5")
    # Load the image
   img = load_img(img_path, target_size=(IMG_HEIGHT, IMG_WIDTH), color_mode="grayscale")
   img = img / 255.0
