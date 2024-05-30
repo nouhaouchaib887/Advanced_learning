@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from utils import display_multiple_images, plot_train_data_distribution, display_multiple_images_2, evaluation_weighted, evaluation_macro, matrice_confusion, report_to_df, training_plots_accuracy, training_plots_loss, classification_rapport
 
 import warnings
-
+current_directory = os.getcwd()
+st.Write(current_directory)
 # Ignorer tous les avertissements
 warnings.filterwarnings('ignore')
 data = "/mount/src/Advanced_learning/streamlit_app/Resultas/data_evaluation.csv"
