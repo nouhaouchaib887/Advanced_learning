@@ -4,6 +4,6 @@ pandas
 matplotlib
 plotly
 scikit-learn
-cv2
+opencv-python-headless
 tensorflow
 os
