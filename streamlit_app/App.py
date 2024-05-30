@@ -8,17 +8,17 @@ import warnings
 
 # Ignorer tous les avertissements
 warnings.filterwarnings('ignore')
-data = "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation.csv"
+data = "/mount/src/Advanced_learning/streamlit_app/Resultats/data_evaluation.csv"
 data = pd.read_csv(data)
-training = "/mount/src/Advanced_learning/streamlit_app/resultats/training.csv"
+training = "/mount/src/Advanced_learning/streamlit_app/Resultats/training.csv"
 history = pd.read_csv(training)
-data_tl =  "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation1.csv"
+data_tl =  "/mount/src/Advanced_learning/streamlit_app/Resultats/data_evaluation1.csv"
 data_tl = pd.read_csv(data_tl)
-training_tl = "/mount/src/Advanced_learning/streamlit_app/resultats/training1.csv"
+training_tl = "/mount/src/Advanced_learning/streamlit_app/Resultats/training1.csv"
 history_tl = pd.read_csv(training_tl)
-data_ssl = "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation2.csv"
+data_ssl = "/mount/src/Advanced_learning/streamlit_app/Resultats/data_evaluation2.csv"
 data_ssl = pd.read_csv(data_ssl)
-training_ssl = "/mount/src/Advanced_learning/streamlit_app/resultats/training2.csv"
+training_ssl = "/mount/src/Advanced_learning/streamlit_app/Resultats/training2.csv"
 history_ssl =  pd.read_csv(training_ssl)
 resultats = {"Supervised learning": {"data": data , "training": history}, "Transfert learning": {"data": data_tl , "training": history_tl}, "Self-supervised learning": {"data": data_ssl , "training": history_ssl}}
 st.sidebar.title("Sommaire")
@@ -89,9 +89,9 @@ if page == pages[4]:
 
     st.write("## Résultas")
     st.write("##### Évaluation Équilibrée : Analyse des Performances par Macro-Moyenne")
-    st.image("/mount/src/Advanced_learning/streamlit_app/resultats/result1.png")
+    st.image("/mount/src/Advanced_learning/streamlit_app/Rresultats/result1.png")
     st.write("##### Performances Pondérées en Fonction de la Fréquence des Classes")
-    st.image("/mount/src/Advanced_learning/streamlit_app/resultats/result2.png")
+    st.image("/mount/src/Advanced_learning/streamlit_app/Resultats/result2.png")
 
 
 
