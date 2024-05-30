@@ -19,7 +19,6 @@ warnings.filterwarnings('ignore')
 #Parameters
 train_dir0 = "/mount/src/Advanced_learning/streamlit_app/image/imd_wiki_examples"
 train_examples = "/mount/src/Advanced_learning/streamlit_app/image/train_example"
-test_dir = "/mount/src/Advanced_learning/streamlit_app/image/test"
 
 
 
@@ -31,19 +30,6 @@ CLASS_LABELS  = ['Anger', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sadness', "Sur
 CLASS_LABELS_EMOJIS = ["👿", "🤢" , "😱" , "😊" , "😐 ", "😔" , "😲" ]
 BATCH_SIZE = 64
 
-test_datagen = ImageDataGenerator(rescale = 1./255,
-                                  validation_split = 0.2
-                                   
-)
-
-test_generator = test_datagen.flow_from_directory(directory = test_dir,
-                                                   target_size = (IMG_HEIGHT ,IMG_WIDTH),
-                                                    batch_size = BATCH_SIZE,
-                                                    shuffle  = False , 
-                                                    color_mode = "grayscale",
-                                                    class_mode = None,
-                                                    seed = 12
-                                                  )
 #helpful functions
 
 
@@ -185,50 +171,4 @@ def report_to_df(report):
     df = df.drop(index_last_row)
     return df
 
-
-import tensorflow as tf
-import numpy as np
-import matplotlib.pyplot as plt
-
-def make_prediction( img_path):
-  model = load_model("/mount/src/Advanced_learning/streamlit_app/resultats/model_TL).h5")
-   # Load the image
-  img = load_img(img_path, target_size=(IMG_HEIGHT, IMG_WIDTH), color_mode="grayscale")
-  img = img / 255.0
-# Convertir l'image en tableau numpy
-  img_array = img_to_array(img)
-
-# Ajouter une dimension pour créer un batch de taille 1
-  img_array = np.expand_dims(img_array, axis=0)
-  # Générer des lots d'images augmentées (ici, une seule image)
-  it = test_datagen.flow(img_array, batch_size=100)
-    # Make Prediction
-  predictions = model.predict(it)
-  pred = np.argmax(predictions)
-  pred = CLASS_LABELS[pred]
-  return pred
-
-def display_multiple_images_3():
-    image_paths = []
-    true_classes = ['Angry', 'Disgusted', 'Fearful', 'Happy', 'Neutral', 'Sad', "Surprised"]
-    predicted_classes=[]
-    for image_file in os.listdir(test_dir):
-                image_path = os.path.join(test_dir, image_file)
-                image_paths.append(image_path)
-    for image_path in image_paths :
-          predicted_classes.append(make_prediction( image_path))
-          
-    
-    fig, axes = plt.subplots(2,5, figsize=(7,7))
-    axes = axes.flatten()
-    for idx, (img_path, ax) in enumerate(zip(image_paths, axes)):
-             img = cv2.imread(img_path)
-             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-             
-             ax.imshow(img)
-             title = predicted_classes[idx]
-             ax.set_title( title)
-             ax.axis('off')
-             fig = plt.tight_layout()
-    return fig
 
