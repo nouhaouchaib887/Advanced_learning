@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
-from utils import display_multiple_images, plot_train_data_distribution, display_multiple_images_2, evaluation_weighted, evaluation_macro, matrice_confusion, report_to_df, training_plots_accuracy, training_plots_loss, classification_rapport, make_prediction, display_multiple_images_3
+from utils import display_multiple_images, plot_train_data_distribution, display_multiple_images_2, evaluation_weighted, evaluation_macro, matrice_confusion, report_to_df, training_plots_accuracy, training_plots_loss, classification_rapport
 
 import warnings
 
@@ -84,18 +84,14 @@ if page == pages[3]:
     df = df.set_index("Class")
     
     st.table(df)
-    path_image = "/mount/src/Advanced_learning/streamlit_app/image/test/img5.jpg"
-    pred = make_prediction( path_image)
-    st.write(pred)
+
 if page == pages[4]:
 
     st.write("## Résultas")
     st.write("##### Évaluation Équilibrée : Analyse des Performances par Macro-Moyenne")
-    st.image("C:/Users/HP/Desktop/result1.png")
+    st.image("/mount/src/Advanced_learning/streamlit_app/resultats/result1.png")
     st.write("##### Performances Pondérées en Fonction de la Fréquence des Classes")
-    st.image("C:/Users/HP/Desktop/result2.png")
-    fig = display_multiple_images_3()
-    st.pyplot(fig)
+    st.image("/mount/src/Advanced_learning/streamlit_app/resultats/result2.png")
 
 
 
