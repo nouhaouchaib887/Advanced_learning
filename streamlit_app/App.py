@@ -8,17 +8,17 @@ import warnings
 
 # Ignorer tous les avertissements
 warnings.filterwarnings('ignore')
-data = "C:/Users/HP/Downloads/data_evaluation.csv"
+data = "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation.csv"
 data = pd.read_csv(data)
-training = "C:/Users/HP/Downloads/training.csv"
+training = "/mount/src/Advanced_learning/streamlit_app/resultats/training.csv"
 history = pd.read_csv(training)
-data_tl =  "C:/Users/HP/Downloads/data_evaluation1.csv"
+data_tl =  "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation1.csv"
 data_tl = pd.read_csv(data_tl)
-training_tl = "C:/Users/HP/Downloads/training1.csv"
+training_tl = "/mount/src/Advanced_learning/streamlit_app/resultats/training1.csv"
 history_tl = pd.read_csv(training_tl)
-data_ssl = "C:/Users/HP/Downloads/data_evaluation2.csv"
+data_ssl = "/mount/src/Advanced_learning/streamlit_app/resultats/data_evaluation2.csv"
 data_ssl = pd.read_csv(data_ssl)
-training_ssl = "C:/Users/HP/Downloads/training2.csv"
+training_ssl = "/mount/src/Advanced_learning/streamlit_app/resultats/training2.csv"
 history_ssl =  pd.read_csv(training_ssl)
 resultats = {"Supervised learning": {"data": data , "training": history}, "Transfert learning": {"data": data_tl , "training": history_tl}, "Self-supervised learning": {"data": data_ssl , "training": history_ssl}}
 st.sidebar.title("Sommaire")
@@ -84,7 +84,7 @@ if page == pages[3]:
     df = df.set_index("Class")
     
     st.table(df)
-    path_image = "C:/Users/HP/Downloads/test/img5.jpg"
+    path_image = "/mount/src/Advanced_learning/streamlit_app/image/test/img5.jpg"
     pred = make_prediction( path_image)
     st.write(pred)
 if page == pages[4]:
